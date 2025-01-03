@@ -1,14 +1,22 @@
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Landing from './Landing';
+import Dashboard from './Dashboard';
+import Layout from './Layout';
 
 function App() {
+  const [showLanding, setShowLanding] = useState(true);
+
   return (
     <>
-      <h1>forever</h1>
-      <a href="https://getwaitlist.com/waitlist/23093" target="_blank" rel="noopener noreferrer" className="waitlist-link">
-        Join our Waitlist
-      </a>
+      {showLanding ?
+        <Landing setShowLanding={setShowLanding} /> :
+        <Layout>
+          <Dashboard />
+        </Layout>
+      }
     </>
-  )
+  );
 }
 
-export default App
+export default App;
